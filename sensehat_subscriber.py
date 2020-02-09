@@ -31,16 +31,12 @@ def callback(message):
     print("List: ", list_conv)
     print(type(list_conv))
     
-    # At this point we would update the raspberry pi sensehat display.  Should be easy enough to sort this out.
-    
-    # Need to figure out how to convert text to an array for use by the program
-    
-    
     message.ack()
 
 streaming_pull_future = subscriber.subscribe(
     subscription_path, callback=callback
 )
+
 print("Listening for messages on {}..\n".format(subscription_path))
 
 # result() in a future will block indefinitely if `timeout` is not set,
